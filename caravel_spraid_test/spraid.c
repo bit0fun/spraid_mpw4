@@ -48,8 +48,8 @@
 void main()
 {
 	/* read, write registers */
-	uint32_t read[3] = {0,0,0};
-	uint32_t write[3] = {0x1234ABCD, 0xABCD1234, 0xAA5555AA};
+//	uint32_t read[3] = {0,0,0};
+//	uint32_t write[3] = {0x1234ABCD, 0xABCD1234, 0xAA5555AA};
 
 
 	/* 
@@ -101,41 +101,34 @@ void main()
     // activate the project by setting the 1st bit of 1st bank of LA - depends on the project ID
     reg_la0_iena = 0; // input enable off
     reg_la0_oenb = 0; // output enable on
-    reg_la0_data = 6 << 1;
+    reg_la0_data = 1 << 6;
 
     // do something with the logic analyser bank la1.
+/*
     reg_la1_iena = 0;
     reg_la1_oenb = 0;
     reg_la1_data |= 100;
 
-
-	/* Write configuration for the raid type */
 	SPRAID_RAID_TYPE = RAID5;	
 
-	/* Check if actually set */
 	if( SPRAID_RAID_TYPE == RAID5 ){
-		/* Go back to RAID0, since that's what we would actually want (and that
-		 * I tested more of) */
 		SPRAID_RAID_TYPE = RAID0;
 	}
 
 
-	/* Sequential write test at different addresses */
 	for( int i = 0; i < 3; i++ ){
 		SPRAID_MEM( i << 2 ) = write[i]; 
 
-		/* Wait for not busy */
 		while( (SPRAID_STATUS & SPRAID_STATUS_BUSY_MASK) == SPRAID_STATUS_BUSY_MASK);
 	}
 
-	/* Sequential read test at different addresses */
 	for( int i = 0; i < 3; i++ ){
 		 read[i] = SPRAID_MEM( i << 2 ); 
 
-		/* Wait for not busy */
 		while( (SPRAID_STATUS & SPRAID_STATUS_BUSY_MASK) == SPRAID_STATUS_BUSY_MASK);
 	}
 
+*/
 
 
 
