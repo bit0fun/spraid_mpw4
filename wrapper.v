@@ -189,7 +189,7 @@ module wrapped_spraid(
 		.wb_ack_o(buf_wbs_ack_o),
 		.wb_adr_i(wbs_adr_i),
 		.wb_cyc_i(wbs_cyc_i),
-		.wb_sel_i(wbs_sel_i),
+//		.wb_sel_i(wbs_sel_i),
 		.wb_stb_i(wbs_stb_i),
 		.wb_we_i(wbs_we_i),
 	
