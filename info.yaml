@@ -1,20 +1,20 @@
 --- 
 # information
 project: 
-  title: "title"
-  description: "description"
+  title: "SPRAID"
+  description: "SPI RAID Controller"
   picture: docs/empty.png
-  author: "Author"
+  author: "Dylan Wadler"
   license: LICENSE
 
 # optional interfaces you want to use: gpio, la1, la2, la3, irq, clk2, wishbone & openram
-interfaces: ['la1', 'gpio']
+interfaces: ['la1', 'gpio', 'wishbone']
 
 # test within caravel
 caravel_test:
   recipe: "coco_test"
   directory: "caravel_test"
-  id: 1
+  id: 6
   module_name: "wrapped_project"
 
 # module test

@@ -1,0 +1,3 @@
+[submodule "spraid"]
+	path = spraid
+	url = git@github.com:bit0fun/spraid
