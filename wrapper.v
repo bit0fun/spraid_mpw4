@@ -168,25 +168,25 @@ module wrapped_spraid(
 		.spi0_clk(buf_io_out[8]),
 		.spi0_cs(buf_io_out[9]),
 		.spi0_mosi(buf_io_out[10]),
-		.spi0_miso(io_in[11]),
+		.spi0_miso(buf_io_in[11]),
 	
 		/* spi1 */
 		.spi1_clk(buf_io_out[12]),
 		.spi1_cs(buf_io_out[13]),
 		.spi1_mosi(buf_io_out[14]),
-		.spi1_miso(io_in[15]),
+		.spi1_miso(buf_io_in[15]),
 	
 		/* spi2 */
 		.spi2_clk(buf_io_out[16]),
 		.spi2_cs(buf_io_out[17]),
 		.spi2_mosi(buf_io_out[18]),
-		.spi2_miso(io_in[19]),
+		.spi2_miso(buf_io_in[19]),
 	
 		/* spi3 */
 		.spi3_clk(buf_io_out[20]),
 		.spi3_cs(buf_io_out[21]),
 		.spi3_mosi(buf_io_out[22]),
-		.spi3_miso(io_in[23])
+		.spi3_miso(buf_io_in[23])
 	
 	);
 
