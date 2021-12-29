@@ -1,0 +1,32 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Wed Dec 29 17:53:38 2021
+[*]
+[dumpfile] "/home/matt/work/asic-workshop/shuttle4/zero_to_asic_mpw4/verilog/dv/caravel_spraid_test/spraid.vcd"
+[dumpfile_mtime] "Wed Dec 29 17:52:52 2021"
+[dumpfile_size] 165494839
+[savefile] "/home/matt/work/asic-workshop/shuttle4/zero_to_asic_mpw4/verilog/dv/caravel_spraid_test/spraid.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-27.000000 76500000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] spraid_tb.
+[treeopen] spraid_tb.uut.
+[treeopen] spraid_tb.uut.mprj.
+[treeopen] spraid_tb.uut.mprj.wrapped_spraid_6.
+[treeopen] spraid_tb.uut.mprj.wrapped_spraid_6.wb_spraid.
+[sst_width] 233
+[signals_width] 283
+[sst_expanded] 1
+[sst_vpaned_height] 305
+@28
+spraid_tb.flash_clk
+spraid_tb.flash_csb
+spraid_tb.flash_io0
+spraid_tb.flash_io1
+@22
+spraid_tb.mprj_io[37:0]
+@29
+spraid_tb.uut.mprj.wrapped_spraid_6.active
+[pattern_trace] 1
+[pattern_trace] 0

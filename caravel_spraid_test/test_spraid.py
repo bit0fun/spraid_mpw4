@@ -26,11 +26,13 @@ async def test_start(dut):
     dut.RSTB <= 1
 
     # wait with a timeout for the project to become active
-    await with_timeout(RisingEdge(dut.uut.mprj.wrapped_project.active), 180, 'us')
+    await with_timeout(RisingEdge(dut.uut.mprj.wrapped_spraid_6.active), 180, 'us')
 
     # wait
     await ClockCycles(dut.clk, 6000)
 
     # assert something
+
+    # maybe you could assert something about the spi lines?
     assert(0 == 25)
 

@@ -21,10 +21,10 @@
 `include "caravel_netlists.v"
 `include "spiflash.v"
 
-module project_tb;
+module spraid_tb;
     initial begin
-        $dumpfile ("project.vcd");
-        $dumpvars (0, project_tb);
+        $dumpfile ("spraid.vcd");
+        $dumpvars (0, spraid_tb);
         #1;
     end
 
@@ -37,6 +37,8 @@ module project_tb;
     wire [37:0] mprj_io;
 
     ///// convenience signals that match what the cocotb test modules are looking for
+
+    // put your spi lines here connected to mprj_io, then you can easily get them from the cocotb
 
 
     /////
@@ -79,7 +81,7 @@ module project_tb;
 	);
 
 	spiflash #(
-		.FILENAME("project.hex")
+		.FILENAME("spraid.hex")
 	) spiflash (
 		.csb(flash_csb),
 		.clk(flash_clk),
