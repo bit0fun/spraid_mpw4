@@ -13,7 +13,7 @@ interfaces: ['gpio', 'wishbone']
 # test within caravel
 caravel_test:
   recipe: "coco_test"
-  directory: "caravel_test"
+  directory: "caravel_spraid_test"
   id: 6
   module_name: "wrapped_spraid"
 
