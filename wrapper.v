@@ -152,14 +152,12 @@ module wrapped_spraid(
     // Use the buffered outputs for your module's outputs.
 
 
-	wb_spraid spraid (
+	wb_spraid wb_spraid (
 		.wb_clk_i(wb_clk_i),
 		.wb_dat_i(wbs_dat_i),
-//		.wb_dat_o(wbs_dat_o),
-		.wb_dat_o(buf_wbs_ack_o),
-		.wb_rst_i(wbs_rst_i),
-//		.wb_ack_o(wbs_ack_o),
-		.wb_ack_o(bf_wbs_ack_o),
+		.wb_dat_o(buf_wbs_dat_o),
+		.wb_rst_i(wb_rst_i),
+		.wb_ack_o(buf_wbs_ack_o),
 		.wb_adr_i(wbs_adr_i),
 		.wb_cyc_i(wbs_cyc_i),
 		.wb_sel_i(wbs_sel_i),
@@ -167,28 +165,28 @@ module wrapped_spraid(
 		.wb_we_i(wbs_we_i),
 	
 		/* spi0 */
-		.spi0_clk(io_out[8]),
-		.spi0_cs(io_out[9]),
-		.spi0_mosi(io_out[10]),
+		.spi0_clk(buf_io_out[8]),
+		.spi0_cs(buf_io_out[9]),
+		.spi0_mosi(buf_io_out[10]),
 		.spi0_miso(io_in[11]),
 	
 		/* spi1 */
-		.spi1_clk(io_out[12]),
-		.spi1_cs(io_out[13]),
-		.spi1_mosi(io_out[14]),
+		.spi1_clk(buf_io_out[12]),
+		.spi1_cs(buf_io_out[13]),
+		.spi1_mosi(buf_io_out[14]),
 		.spi1_miso(io_in[15]),
 	
 		/* spi2 */
-		.spi2_clk(io_out[16]),
-		.spi2_cs(io_out[17]),
-		.spi2_mosi(io_out[18]),
+		.spi2_clk(buf_io_out[16]),
+		.spi2_cs(buf_io_out[17]),
+		.spi2_mosi(buf_io_out[18]),
 		.spi2_miso(io_in[19]),
 	
 		/* spi3 */
-		.spi3_clk(io_out[20]),
-		.spi3_cs(io_out[21]),
-		.spi3_mosi(io_out[22]),
-		.spi3_miso(io_in[23]),
+		.spi3_clk(buf_io_out[20]),
+		.spi3_cs(buf_io_out[21]),
+		.spi3_mosi(buf_io_out[22]),
+		.spi3_miso(io_in[23])
 	
 	);
 
