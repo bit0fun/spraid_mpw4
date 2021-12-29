@@ -6,14 +6,14 @@ set ::env(DESIGN_NAME) project_name
 
 # add your source files here
 set ::env(VERILOG_FILES) "$::env(DESIGN_DIR)/wrapper.v \
-    $::env(DESIGN_DIR)/src/wb_spraid.v \
-	$::env(DESIGN_DIR)/src/spraid.v \
-	$::env(DESIGN_DIR)/src/raid.v \
-	$::env(DESIGN_DIR)/src/flash_ctl.v \
-	$::env(DESIGN_DIR)/src/spi32.v \
-	$::env(DESIGN_DIR)/src/spi_master.v \
-	$::env(DESIGN_DIR)/src/pload_shift.v \
-	$::env(DESIGN_DIR)/src/sync_fifo.v "
+    $::env(DESIGN_DIR)/spraid/src/wb_spraid.v \
+	$::env(DESIGN_DIR)/spraid/src/spraid.v \
+	$::env(DESIGN_DIR)/spraid/src/raid.v \
+	$::env(DESIGN_DIR)/spraid/src/flash_ctl.v \
+	$::env(DESIGN_DIR)/spraid/src/spi32.v \
+	$::env(DESIGN_DIR)/spraid/src/spi_master.v \
+	$::env(DESIGN_DIR)/spraid/src/pload_shift.v \
+	$::env(DESIGN_DIR)/spraid/src/sync_fifo.v "
 
 # target density, change this if you can't get your design to fit
 set ::env(PL_TARGET_DENSITY) 0.55
