@@ -38,6 +38,8 @@ module spraid_tb;
 
     ///// convenience signals that match what the cocotb test modules are looking for
 
+    // put your spi lines here connected to mprj_io, then you can easily get them from the cocotb
+
 
     /////
 
@@ -79,7 +81,7 @@ module spraid_tb;
 	);
 
 	spiflash #(
-		.FILENAME("project.hex")
+		.FILENAME("spraid.hex")
 	) spiflash (
 		.csb(flash_csb),
 		.clk(flash_clk),
