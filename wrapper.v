@@ -76,7 +76,6 @@ module wrapped_spraid(
     wire                        buf_wbs_ack_o;
     wire [31:0]                 buf_wbs_dat_o;
     wire [31:0]                 buf_la1_data_out;
-	wire [`MPRJ_IO_PADS-1:0]	buf_io_in;
     wire [`MPRJ_IO_PADS-1:0]    buf_io_out;
     wire [`MPRJ_IO_PADS-1:0]    buf_io_oeb;
     wire [2:0]                  buf_user_irq;
@@ -125,14 +124,6 @@ module wrapped_spraid(
     assign io_out[14:12] = active ? buf_io_out[14:12] : 3'b0;
     assign io_out[18:16] = active ? buf_io_out[18:16] : 3'b0;
     assign io_out[22:20] = active ? buf_io_out[22:20] : 3'b0;
-	assign buf_io_in[10:0] = 11'b0;
-	assign buf_io_in[14:12] = 3'b0;
-	assign buf_io_in[18:16] = 3'b0;
-	assign buf_io_in[22:20] = 3'b0;
-    assign buf_io_in[11] = active ? io_in[11] 	      : 1'b0;
-    assign buf_io_in[15] = active ? io_in[15] 	      : 1'b0;
-    assign buf_io_in[19] = active ? io_in[19] 	      : 1'b0;
-    assign buf_io_in[23] = active ? io_in[23] 	      : 1'b0;
     assign io_oeb       = active ? buf_io_oeb         : {`MPRJ_IO_PADS{1'b0}};
     `endif
     `ifdef USE_IRQ
@@ -175,14 +166,6 @@ module wrapped_spraid(
     assign io_out[14:12] = active ? buf_io_out[14:12] : 3'bz;
     assign io_out[18:16] = active ? buf_io_out[18:16] : 3'bz;
     assign io_out[22:20] = active ? buf_io_out[22:20] : 3'bz;
-	assign buf_io_in[10:0] = 11'bz;
-	assign buf_io_in[14:12] = 3'bz;
-	assign buf_io_in[18:16] = 3'bz;
-	assign buf_io_in[22:20] = 3'bz;
-    assign buf_io_in[11] = active ? io_in[11] 	      : 1'bz;
-    assign buf_io_in[15] = active ? io_in[15] 	      : 1'bz;
-    assign buf_io_in[19] = active ? io_in[19] 	      : 1'bz;
-    assign buf_io_in[23] = active ? io_in[23] 	      : 1'bz;
     assign io_oeb       = active ? buf_io_oeb       : {`MPRJ_IO_PADS{1'bz}};
     `endif
     `ifdef USE_IRQ
@@ -214,25 +197,25 @@ module wrapped_spraid(
 		.spi0_clk(buf_io_out[8]),
 		.spi0_cs(buf_io_out[9]),
 		.spi0_mosi(buf_io_out[10]),
-		.spi0_miso(buf_io_in[11]),
+		.spi0_miso(io_in[11]),
 	
 		/* spi1 */
 		.spi1_clk(buf_io_out[12]),
 		.spi1_cs(buf_io_out[13]),
 		.spi1_mosi(buf_io_out[14]),
-		.spi1_miso(buf_io_in[15]),
+		.spi1_miso(io_in[15]),
 	
 		/* spi2 */
 		.spi2_clk(buf_io_out[16]),
 		.spi2_cs(buf_io_out[17]),
 		.spi2_mosi(buf_io_out[18]),
-		.spi2_miso(buf_io_in[19]),
+		.spi2_miso(io_in[19]),
 	
 		/* spi3 */
 		.spi3_clk(buf_io_out[20]),
 		.spi3_cs(buf_io_out[21]),
 		.spi3_mosi(buf_io_out[22]),
-		.spi3_miso(buf_io_in[23])
+		.spi3_miso(io_in[23])
 	
 	);
 
