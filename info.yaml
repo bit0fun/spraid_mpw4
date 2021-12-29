@@ -47,6 +47,6 @@ source:
 # gds - check nothing on metal 5, DRC & LVS
 gds:
   directory: "gds"
-  gds_filename: "project.gds"
-  lvs_filename: "project.lvs.powered.v"
-  lef_filename: "project.lef"
+  gds_filename: "wrapped_spraid.gds"
+  lvs_filename: "wrapped_spraid.lvs.powered.v"
+  lef_filename: "wrapped_spraid.lef"

@@ -15,7 +15,7 @@ module wrapped_spraid(
     inout vccd1,	// User area 1 1.8V supply
     inout vssd1,	// User area 1 digital ground
 `endif
-    input wire wb_clk_i,                            // clock, runs at system clock
+    input wire wb_clk_i,            // clock, runs at system clock
  // caravel wishbone peripheral
 `ifdef USE_WB
     input wire          wb_rst_i,                   // main system reset
@@ -108,23 +108,8 @@ module wrapped_spraid(
     assign la1_data_out = active ? buf_la1_data_out  : 32'b0;
     `endif
     `ifdef USE_IO
-	assign io_out[7:0]   = 8'b0;
-	assign io_out[37:24] = 14'b0;
-	assign io_out[15] = 1'b0;
-	assign io_out[19] = 1'b0;
-	assign io_out[23] = 1'b0;
-	assign buf_io_out[7:0]   = 8'b0;
-	assign buf_io_out[37:24] = 14'b0;
-	assign buf_io_out[11] = 1'b0;
-	assign buf_io_out[15] = 1'b0;
-	assign buf_io_out[19] = 1'b0;
-	assign buf_io_out[23] = 1'b0;
-
-    assign io_out[11:8]  = active ? buf_io_out[10:8]  : 3'b0;
-    assign io_out[14:12] = active ? buf_io_out[14:12] : 3'b0;
-    assign io_out[18:16] = active ? buf_io_out[18:16] : 3'b0;
-    assign io_out[22:20] = active ? buf_io_out[22:20] : 3'b0;
-    assign io_oeb       = active ? buf_io_oeb         : {`MPRJ_IO_PADS{1'b0}};
+    assign io_out       = active ? buf_io_out       : {`MPRJ_IO_PADS{1'b0}};
+    assign io_oeb       = active ? buf_io_oeb       : {`MPRJ_IO_PADS{1'b0}};
     `endif
     `ifdef USE_IRQ
     assign user_irq     = active ? buf_user_irq          : 3'b0;
@@ -151,21 +136,7 @@ module wrapped_spraid(
     assign la1_data_out  = active ? buf_la1_data_out  : 32'bz;
     `endif
     `ifdef USE_IO
-	assign io_out[15] = 1'bz;
-	assign io_out[19] = 1'bz;
-	assign io_out[23] = 1'bz;
-	assign io_out[7:0]   = 8'bz;
-	assign io_out[38:24] = 14'bz;
-	assign buf_io_out[11] = 1'bz;
-	assign buf_io_out[15] = 1'bz;
-	assign buf_io_out[19] = 1'bz;
-	assign buf_io_out[23] = 1'bz;
-	assign buf_io_out[7:0]   = 8'bz;
-	assign buf_io_out[38:24] = 14'bz;
-    assign io_out[11:8]  = active ? buf_io_out[10:8]  : 3'bz;
-    assign io_out[14:12] = active ? buf_io_out[14:12] : 3'bz;
-    assign io_out[18:16] = active ? buf_io_out[18:16] : 3'bz;
-    assign io_out[22:20] = active ? buf_io_out[22:20] : 3'bz;
+    assign io_out       = active ? buf_io_out       : {`MPRJ_IO_PADS{1'bz}};
     assign io_oeb       = active ? buf_io_oeb       : {`MPRJ_IO_PADS{1'bz}};
     `endif
     `ifdef USE_IRQ
@@ -179,7 +150,6 @@ module wrapped_spraid(
     // Instantiate your module here, 
     // connecting what you need of the above signals. 
     // Use the buffered outputs for your module's outputs.
-
 
 	wb_spraid wb_spraid (
 		.wb_clk_i(wb_clk_i),
