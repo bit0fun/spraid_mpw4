@@ -24,8 +24,8 @@ set ::env(PL_TARGET_DENSITY) [ expr ($::env(FP_CORE_UTIL)+5) / 100.0 ]
 # don't put clock buffers on the outputs, need tristates to be the final cells
 set ::env(PL_RESIZER_BUFFER_OUTPUT_PORTS) 0
 
-set ::env(PL_RESIZER_HOLD_SLACK_MARGIN) 0.2
-set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) 0.2
+set ::env(PL_RESIZER_HOLD_SLACK_MARGIN) 0.1
+set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) 0.1
 
 # set absolute size of the die to 300 x 300 um
 #set ::env(DIE_AREA) "0 0 600 600"
