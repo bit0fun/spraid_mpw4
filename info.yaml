@@ -8,14 +8,14 @@ project:
   license: LICENSE
 
 # optional interfaces you want to use: gpio, la1, la2, la3, irq, clk2, wishbone & openram
-interfaces: ['la1', 'gpio', 'wishbone']
+interfaces: ['gpio', 'wishbone']
 
 # test within caravel
 caravel_test:
   recipe: "coco_test"
   directory: "caravel_test"
   id: 6
-  module_name: "wrapped_project"
+  module_name: "wrapped_spraid"
 
 # module test
 module_test:
@@ -35,7 +35,22 @@ openlane:
 # source required for various configs and module instantiation
 source:
     - wrapper.v
-    - other source files here
+    - spraid/src/flash_ctl.v
+    - spraid/src/pload_shift.v
+    - spraid/src/pread_shift.v
+    - spraid/src/raid0.v
+    - spraid/src/raid0_write.v
+    - spraid/src/raid1.v
+    - spraid/src/raid5.v
+    - spraid/src/raid.v
+    - spraid/src/spi32.v
+    - spraid/src/spi_controller.v
+    - spraid/src/spi_master.v
+    - spraid/src/spi_slave.v
+    - spraid/src/spi.v
+    - spraid/src/spraid.v
+    - spraid/src/sync_fifo.v
+    - spraid/src/wb_spraid.v
 
 # gds - check nothing on metal 5, DRC & LVS
 gds:
