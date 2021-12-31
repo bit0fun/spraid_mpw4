@@ -2,8 +2,8 @@
 # information
 project: 
   title: "SPRAID"
-  description: "SPI RAID Controller"
-  picture: docs/empty.png
+  description: "SPI RAID Controller: Supports RAID0, RAID1, RAID5 with 4 SPI Flash devices"
+  picture: docs/spraid.png
   author: "Dylan Wadler"
   license: LICENSE
   waive_module_test: "no test provided"
