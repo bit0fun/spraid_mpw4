@@ -27,10 +27,11 @@
 /* SPRAID Access definitions */
 #define CARAVEL_USER_BASE			(0x30000000)
 #define SPRAID_BASE					(CARAVEL_USER_BASE)
-#define SPRAID_ADDR_MASK			(0x3FF)	/* only 4KB, 11 bit address space for specific FRAM IC available */
+#define SPRAID_ADDR_MASK			(0x7FF)	/* 11 bit address space for specific FRAM IC available */
 #define SPRAID_MEM(x)				(*(volatile uint32_t*)(SPRAID_BASE + ( (x) & SPRAID_ADDR_MASK )))
-#define SPRAID_RAID_TYPE			SPRAID_MEM(0x400)
-#define SPRAID_STATUS				SPRAID_MEM(0x401)
+#define SPRAID_REG(x) 				(*(volatile uint8_t*)(SPRAID_BASE + ((x))))
+#define SPRAID_RAID_TYPE			(SPRAID_REG(0x800))
+#define SPRAID_STATUS				SPRAID_REG(0x801)
 #define SPRAID_STATUS_BUSY_MASK		0x01
 #define SPRAID_STATUS_PARITY_MASK	0x02
 #define SPRAID_STATUS_ERR_MASK		0x04
@@ -48,8 +49,8 @@
 void main()
 {
 	/* read, write registers */
-//	uint32_t read[3] = {0,0,0};
-//	uint32_t write[3] = {0x1234ABCD, 0xABCD1234, 0xAA5555AA};
+	uint32_t read[4] = {0,0,0,0};
+	uint32_t write[4] = {0x0A0B0C0D, 0x1A1B1C1D, 0x2A2B2C2D, 0x3A3B3C3D};
 
 
 	/* 
@@ -104,10 +105,10 @@ void main()
     reg_la0_data = 1 << 6;
 
     // do something with the logic analyser bank la1.
-/*
+
     reg_la1_iena = 0;
     reg_la1_oenb = 0;
-    reg_la1_data |= 100;
+    reg_la1_data = 0xff;
 
 	SPRAID_RAID_TYPE = RAID5;	
 
@@ -115,20 +116,31 @@ void main()
 		SPRAID_RAID_TYPE = RAID0;
 	}
 
+	*((volatile uint32_t *)(0x30000100))= write[0];
+	*((volatile uint32_t *)(0x30000104))= write[1];
+	*((volatile uint32_t *)(0x30000108))= write[2];
+	*((volatile uint32_t *)(0x3000010C))= write[3];
+	//for( int i = 0; i < 4; i++ ){
+	//	*((volatile uint32_t *)(0x30000100 + i ) )= write[i]; 
 
-	for( int i = 0; i < 3; i++ ){
-		SPRAID_MEM( i << 2 ) = write[i]; 
+//		while( (SPRAID_STATUS & SPRAID_STATUS_BUSY_MASK) == SPRAID_STATUS_BUSY_MASK);
+//	}
 
-		while( (SPRAID_STATUS & SPRAID_STATUS_BUSY_MASK) == SPRAID_STATUS_BUSY_MASK);
+
+	read[0] = *((volatile uint32_t *)(0x30000100) ); 
+	read[1] = *((volatile uint32_t *)(0x30000104) ); 
+	read[2] = *((volatile uint32_t *)(0x30000108) ); 
+	read[3] = *((volatile uint32_t *)(0x3000010C) ); 
+
+	for( int i = 0; i < 4; i++ ){
+		if( read[i] != write[i] ){
+			reg_la1_data = 0xAA;			
+		}
+		else {
+			reg_la1_data = 0x55;
+		}
+//		while( (SPRAID_STATUS & SPRAID_STATUS_BUSY_MASK) == SPRAID_STATUS_BUSY_MASK);
 	}
-
-	for( int i = 0; i < 3; i++ ){
-		 read[i] = SPRAID_MEM( i << 2 ); 
-
-		while( (SPRAID_STATUS & SPRAID_STATUS_BUSY_MASK) == SPRAID_STATUS_BUSY_MASK);
-	}
-
-*/
 
 
 

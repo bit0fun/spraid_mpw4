@@ -1,24 +1,22 @@
 [*]
-[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Wed Dec 29 18:33:25 2021
+[*] GTKWave Analyzer v3.3.111 (w)1999-2020 BSI
+[*] Fri Dec 31 03:04:39 2021
 [*]
-[dumpfile] "/home/matt/work/asic-workshop/shuttle4/zero_to_asic_mpw4/verilog/dv/caravel_spraid_test/spraid.vcd"
-[dumpfile_mtime] "Wed Dec 29 18:32:08 2021"
-[dumpfile_size] 165017792
-[savefile] "/home/matt/work/asic-workshop/shuttle4/zero_to_asic_mpw4/verilog/dv/caravel_spraid_test/spraid.gtkw"
-[timestart] 0
-[size] 1848 1016
+[dumpfile] "/home/bit0fun/Documents/workspace/ASIC/toolchain/caravel_user_project/verilog/dv/spraid/spraid.vcd"
+[dumpfile_mtime] "Fri Dec 31 03:04:39 2021"
+[dumpfile_size] 399478784
+[savefile] "/home/bit0fun/Documents/workspace/ASIC/toolchain/caravel_user_project/verilog/dv/spraid/spraid.gtkw"
+[timestart] 266220000
+[size] 1920 1039
 [pos] -1 -1
-*-27.000000 182700000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-23.035089 289550000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] spraid_tb.
 [treeopen] spraid_tb.uut.
 [treeopen] spraid_tb.uut.mprj.
-[treeopen] spraid_tb.uut.mprj.wrapped_spraid_6.
-[treeopen] spraid_tb.uut.mprj.wrapped_spraid_6.wb_spraid.
 [sst_width] 233
-[signals_width] 283
+[signals_width] 491
 [sst_expanded] 1
-[sst_vpaned_height] 608
+[sst_vpaned_height] 580
 @28
 spraid_tb.flash_clk
 spraid_tb.flash_csb
@@ -27,41 +25,56 @@ spraid_tb.flash_io1
 @22
 spraid_tb.mprj_io[37:0]
 @28
-spraid_tb.uut.mprj.wrapped_spraid_6.active
-@22
-spraid_tb.uut.mprj.active[31:0]
-@29
 spraid_tb.RSTB
-@28
 spraid_tb.USER_VDD1V8
 spraid_tb.USER_VDD3V3
 spraid_tb.VDD1V8
 spraid_tb.VDD3V3
 spraid_tb.clk
-spraid_tb.uut.mprj.wrapped_spraid_6.wb_clk_i
-spraid_tb.uut.mprj.wrapped_spraid_6.wb_rst_i
-spraid_tb.uut.mprj.wrapped_spraid_6.wbs_ack_o
-@22
-spraid_tb.uut.mprj.wrapped_spraid_6.wbs_adr_i[31:0]
-@28
-spraid_tb.uut.mprj.wrapped_spraid_6.wbs_cyc_i
-@22
-spraid_tb.uut.mprj.wrapped_spraid_6.wbs_dat_i[31:0]
-spraid_tb.uut.mprj.wrapped_spraid_6.wbs_dat_o[31:0]
-spraid_tb.uut.mprj.wrapped_spraid_6.wbs_sel_i[3:0]
-@28
-spraid_tb.uut.mprj.wrapped_spraid_6.wbs_stb_i
-spraid_tb.uut.mprj.wrapped_spraid_6.wbs_we_i
 spraid_tb.uut.mprj.wb_clk_i
-spraid_tb.uut.mprj.wb_rst_i
 spraid_tb.uut.mprj.wbs_ack_o
 @22
 spraid_tb.uut.mprj.wbs_adr_i[31:0]
 @28
 spraid_tb.uut.mprj.wbs_cyc_i
+spraid_tb.uut.mprj.wbs_we_i
+@29
+spraid_tb.uut.mprj.wrapped_spraid.wb_stb_i
 @22
 spraid_tb.uut.mprj.wbs_dat_i[31:0]
 spraid_tb.uut.mprj.wbs_dat_o[31:0]
 spraid_tb.uut.mprj.wbs_sel_i[3:0]
+@200
+-SPI0
+@28
+spraid_tb.uut.mprj.wrapped_spraid.spi0_clk
+spraid_tb.uut.mprj.wrapped_spraid.spi0_cs
+spraid_tb.uut.mprj.wrapped_spraid.spi0_miso
+spraid_tb.uut.mprj.wrapped_spraid.spi0_mosi
+@200
+-SPI1
+@28
+spraid_tb.uut.mprj.wrapped_spraid.spi1_clk
+spraid_tb.uut.mprj.wrapped_spraid.spi1_cs
+spraid_tb.uut.mprj.wrapped_spraid.spi1_miso
+spraid_tb.uut.mprj.wrapped_spraid.spi1_mosi
+@200
+-SPI2
+@28
+spraid_tb.uut.mprj.wrapped_spraid.spi2_clk
+spraid_tb.uut.mprj.wrapped_spraid.spi2_cs
+spraid_tb.uut.mprj.wrapped_spraid.spi2_miso
+spraid_tb.uut.mprj.wrapped_spraid.spi2_mosi
+@200
+-SPI3
+@28
+spraid_tb.uut.mprj.wrapped_spraid.spi3_clk
+spraid_tb.uut.mprj.wrapped_spraid.spi3_cs
+spraid_tb.uut.mprj.wrapped_spraid.spi3_miso
+spraid_tb.uut.mprj.wrapped_spraid.spi3_mosi
+@22
+spraid_tb.uut.mgmt_buffers.la_data_out_mprj[127:0]
+@28
+spraid_tb.uut.mprj.wrapped_spraid.addr_in_bounds
 [pattern_trace] 1
 [pattern_trace] 0

@@ -64,12 +64,12 @@ ifeq ($(SIM),RTL)
 	iverilog -DFUNCTIONAL -DSIM -I $(PDK_PATH) \
 	-I $(CARAVEL_BEHAVIOURAL_MODELS) -I $(CARAVEL_RTL_PATH) \
 	-I $(UPRJ_BEHAVIOURAL_MODELS)    -I $(UPRJ_RTL_PATH) \
-	$< -o $@ 
+	$< -o $@ -lxt2
 else  
 	iverilog -DFUNCTIONAL -DSIM -DGL -I $(PDK_PATH) \
 	-I $(CARAVEL_BEHAVIOURAL_MODELS) -I $(CARAVEL_RTL_PATH) -I $(CARAVEL_VERILOG_PATH) \
 	-I $(UPRJ_BEHAVIOURAL_MODELS) -I$(UPRJ_RTL_PATH)   -I $(UPRJ_VERILOG_PATH) \
-	$< -o $@ 
+	$< -o $@  -lxt2
 endif
 
 %.vcd: %.vvp
