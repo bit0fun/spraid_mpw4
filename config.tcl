@@ -18,14 +18,15 @@ set ::env(VERILOG_FILES) "$::env(DESIGN_DIR)/wrapper.v \
 set ::env(ROUTING_CORES) 32
 
 # target density, change this if you can't get your design to fit
-set ::env(FP_CORE_UTIL) 45
-set ::env(PL_TARGET_DENSITY) [ expr ($::env(FP_CORE_UTIL)+5) / 100.0 ]
+set ::env(FP_CORE_UTIL) 48
+#set ::env(PL_TARGET_DENSITY) [ expr ($::env(FP_CORE_UTIL)+5) / 100.0 ]
+set ::env(PL_TARGET_DENSITY) 0.55
 
 # don't put clock buffers on the outputs, need tristates to be the final cells
 set ::env(PL_RESIZER_BUFFER_OUTPUT_PORTS) 0
 
-set ::env(PL_RESIZER_HOLD_SLACK_MARGIN) 0.1
-set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) 0.1
+#set ::env(PL_RESIZER_HOLD_SLACK_MARGIN) 0.1
+#set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) 0.1
 
 # set absolute size of the die to 300 x 300 um
 #set ::env(DIE_AREA) "0 0 600 600"
@@ -35,7 +36,7 @@ set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) 0.1
 set ::env(SYNTH_DEFINES) "MPRJ_IO_PADS=38"
 
 # clock period is ns
-set ::env(CLOCK_PERIOD) "10"
+set ::env(CLOCK_PERIOD) "11"
 set ::env(CLOCK_PORT) "wb_clk_i"
 
 # macro needs to work inside Caravel, so can't be core and can't use metal 5
